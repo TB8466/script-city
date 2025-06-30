@@ -1,8 +1,11 @@
 import requests
 import csv
+from dotenv import load_dotenv
+import os
 
-# Insert PUBLIC or PREVIEW API token here
-API_TOKEN = '<TOKEN>'
+load_dotenv()
+
+API_TOKEN = os.getenv("STORYBLOK_TOKEN")
 SPACE_URL = 'https://api.storyblok.com/v2/cdn/stories'
 
 params = {
@@ -27,7 +30,7 @@ while True:
 
     params['page'] += 1
 
-with open('pages.csv', 'w', newline='', encoding='utf-8') as csvfile:
+with open('outputs/pages.csv', 'w', newline='', encoding='utf-8') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['Name', 'Slug', 'Full Slug', 'Published At'])
 

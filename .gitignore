@@ -1,0 +1,4 @@
+.env
+
+Storyblok/outputs/*
+!Storyblok/outputs/.gitkeep
